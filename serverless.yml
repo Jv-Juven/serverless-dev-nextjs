@@ -1,0 +1,34 @@
+component: http
+name: http-nextjs-W4nApXLU6x
+inputs:
+  src:
+    dist: ./
+    hook: npm run build
+    exclude:
+      - .env
+  faas:
+    runtime: Nodejs12.16
+    framework: nextjs
+    name: '${name}'
+    eip: false
+    timeout: 3
+    memorySize: 512
+    tags: []
+    environments:
+      - key: ENV_TYPE
+        value: DEV-SERVERLESS
+    layers:
+      - name: '${output:${stage}:${app}:dev-nextjs-layer.name}'
+        version: '${output:${stage}:${app}:dev-nextjs-layer.version}'
+  apigw:
+    protocols:
+      - http
+      - https
+    timeout: 60
+    environment: release
+    customDomains: []
+  region: ap-guangzhou
+  isAutoCiDeploy: false
+org: '1252119915'
+app: dev-nextjs
+stage: dev
