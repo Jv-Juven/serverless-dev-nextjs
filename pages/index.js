@@ -12,7 +12,7 @@ export default function Index() {
       </Head>
 
       <main>
-        <h1 className={styles.title}>欢迎访问 Next.js 应用</h1>
+        <h1 className={styles.title}>欢迎访问 Next.js 应用，这只是一个github仓库的示例，自动触发构建</h1>
 
         <p className={styles.description}>
           <a href="https://cloud.tencent.com/product/ssr" target="_blank" rel="noopener noreferrer">
